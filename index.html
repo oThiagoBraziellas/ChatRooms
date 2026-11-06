@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChatRooms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="login" class="login">
+    <form id="login-form" class="login-card">
+      <h1>ChatRooms</h1>
+      <p>Open this page in several tabs, pick a different name in each, and chat between them. No server involved.</p>
+      <label for="name">Your name</label>
+      <input id="name" maxlength="20" autocomplete="off" required>
+      <button type="submit">Join</button>
+    </form>
+  </section>
+
+  <div id="app" class="app" hidden>
+    <aside class="side">
+      <h1>ChatRooms</h1>
+      <nav id="rooms" class="rooms" aria-label="Rooms"></nav>
+      <h2>In this room</h2>
+      <ul id="users" class="users"></ul>
+      <p class="foot"><span id="me"></span> &middot; <span id="online"></span></p>
+    </aside>
+    <main class="main">
+      <header class="head"><h2 id="room-title"></h2></header>
+      <p id="warn" class="warn" hidden>BroadcastChannel is not supported here, so tabs cannot talk to each other.</p>
+      <ul id="log" class="log" aria-live="polite" aria-label="Messages"></ul>
+      <p id="typing" class="typing" aria-live="off"></p>
+      <form id="form" class="composer">
+        <label for="text" class="sr-only">Message</label>
+        <textarea id="text" rows="1" maxlength="500" placeholder="Write a message (Enter to send, Shift+Enter for a new line)"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
